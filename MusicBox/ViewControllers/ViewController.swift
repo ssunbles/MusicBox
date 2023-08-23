@@ -52,7 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "secondSectionCell", for: indexPath) as! SecondSectionCell
             cell.configure(title: buttons[indexPath.row], tag: indexPath.row)
-            cell.delegate = self
             cell.selectionStyle = .none
             return cell
         }
@@ -66,6 +65,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             return UITableView.automaticDimension
         }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let selectedButtonTitle = buttons[indexPath.row]
+            
+            switch selectedButtonTitle {
+            case "Песни" :
+                let songsArray : [Song] = DataManager.songs
+                let songsViewController = SongsViewController (songs: songsArray)
+                navigationController?.pushViewController(songsViewController, animated: true)
+                
+            
+                
+                
+            default:
+                break
+            }
+            
+            
+        }
+    }
         func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
             if indexPath.section == 0 {
                 return 320
@@ -74,21 +93,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             return UITableView.automaticDimension
         }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-           if indexPath.row == 0 {
-                
-                print("Pressed : Песни")
-                let songsArray: [Song] = DataManager.songs // получаем массив песен из DataManager
-                let songsViewController = SongsViewController(songs: songsArray)
-                
-                navigationController?.pushViewController(songsViewController, animated: true)
-            }
-            else {
-                print("Pressed : не попал")
-            }
-        }
-    }
+    
 }
 class FirstSectionCell: UITableViewCell {
     let roundButton = UIButton(type: .system)
@@ -111,13 +116,13 @@ class FirstSectionCell: UITableViewCell {
     }
 }
 protocol SecondSectionDelegate: AnyObject { // протокол делегата
-    func buttonPressed(withSongs songs: [Song])
+    func buttonPressed(withSongs songs: [Song], tag: Int)
 }
 class SecondSectionCell: UITableViewCell {
     let button = UIButton(type: .system)
     weak var delegate: SecondSectionDelegate? // свойство делегата
     
-    func configure(title: String, tag: Int) {
+    func configure(title: String, tag : Int) {
         backgroundColor = UIColor.blue
         button.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
         button.backgroundColor = UIColor.red
@@ -126,15 +131,13 @@ class SecondSectionCell: UITableViewCell {
         button.setTitleColor(UIColor.white, for: .normal)
         button.center = contentView.center
         contentView.addSubview(button)
+        
+        // метод для отображения нажатия кнопки
         button.addTarget(self, action: #selector(buttonIsPressed), for: .touchUpInside)
+        button.tag = tag
     }
-    @objc func buttonIsPressed() {
-        delegate?.buttonPressed(withSongs: DataManager.songs)
+    @objc func buttonIsPressed () {
+        delegate?.buttonPressed(withSongs: DataManager.songs, tag: button.tag)
     }
-}
-extension ViewController: SecondSectionDelegate {
-    func buttonPressed(withSongs songs: [Song]) {
-        let songViewController = SongsViewController(songs: songs)
-        navigationController?.pushViewController(songViewController, animated: true)
-    }
+    
 }

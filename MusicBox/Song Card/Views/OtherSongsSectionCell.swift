@@ -41,7 +41,7 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
 
             collectionView.delegate = self
             collectionView.dataSource = self
-            collectionView.backgroundColor = UIColor.green
+          //  collectionView.backgroundColor = UIColor.green
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             
             containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
             contentView.addSubview(containerView)
             containerView.addSubview(firstTitleOtherLabelOfSection)
             firstTitleOtherLabelOfSection.text = "Другие песни"
-            firstTitleOtherLabelOfSection.backgroundColor = UIColor.gray
+           // firstTitleOtherLabelOfSection.backgroundColor = UIColor.gray
             firstTitleOtherLabelOfSection.font = UIFont.systemFont(ofSize: Guidelines.otherSongFirstTitleForCell)
             
             // загружаем остальные песни, кроме текущей
@@ -141,7 +141,7 @@ class OtherSongsCollectionView : UICollectionViewCell {
     func configure(with song: Song) {
         otherSongTitleLabel.text = song.songName ?? "Unknown Song"
         otherSongTitleLabel.font = UIFont.systemFont(ofSize: 10)
-        contentView.backgroundColor = UIColor.purple
+       // contentView.backgroundColor = UIColor.purple
         
         if let songImage = song.imageName {
             otherSongImageLabel.image = songImage

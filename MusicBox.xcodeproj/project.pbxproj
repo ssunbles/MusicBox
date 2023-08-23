@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D93D58E52A7ABE2700DE1861 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = D93D58E42A7ABE2700DE1861 /* SnapKit-Dynamic */; };
+		D95FD8EE2A955A290007684C /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD8ED2A955A290007684C /* ArtistsViewController.swift */; };
 		D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9B2A8931B000B0AB34 /* ImageSongSectionCell.swift */; };
 		D9912B9E2A8931EC00B0AB34 /* TitleSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9D2A8931EC00B0AB34 /* TitleSongSectionCell.swift */; };
 		D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9F2A89320000B0AB34 /* LyricSongSectionCell.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D95FD8ED2A955A290007684C /* ArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		D9912B9B2A8931B000B0AB34 /* ImageSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSongSectionCell.swift; sourceTree = "<group>"; };
 		D9912B9D2A8931EC00B0AB34 /* TitleSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSongSectionCell.swift; sourceTree = "<group>"; };
 		D9912B9F2A89320000B0AB34 /* LyricSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricSongSectionCell.swift; sourceTree = "<group>"; };
@@ -35,7 +37,7 @@
 		D9EA94CC2A5498C0000EB731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9EA94CE2A5498C0000EB731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9EEDF062A71876D007E1B1E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		D9EEDF082A718944007E1B1E /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SongsViewController.swift; path = ../SongsViewController.swift; sourceTree = "<group>"; };
+		D9EEDF082A718944007E1B1E /* SongsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsViewController.swift; sourceTree = "<group>"; };
 		D9EEDF0A2A718AD5007E1B1E /* SongCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D95FD8EF2A955A500007684C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA94C42A5498BE000EB731 /* ViewController.swift */,
+				D9EEDF082A718944007E1B1E /* SongsViewController.swift */,
+				D95FD8ED2A955A290007684C /* ArtistsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		D9912B9A2A89315C00B0AB34 /* Song Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +113,7 @@
 			children = (
 				D9912BA42A89337100B0AB34 /* Models */,
 				D9EA94C02A5498BE000EB731 /* AppDelegate.swift */,
-				D9EA94C42A5498BE000EB731 /* ViewController.swift */,
-				D9EEDF082A718944007E1B1E /* SongsViewController.swift */,
+				D95FD8EF2A955A500007684C /* ViewControllers */,
 				D9912B9A2A89315C00B0AB34 /* Song Card */,
 				D9EA94C92A5498C0000EB731 /* Assets.xcassets */,
 				D9EA94CB2A5498C0000EB731 /* LaunchScreen.storyboard */,
@@ -197,6 +208,7 @@
 				D9912BA62A89337B00B0AB34 /* Song.swift in Sources */,
 				D9912BA32A89326300B0AB34 /* OtherSongsSectionCell.swift in Sources */,
 				D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */,
+				D95FD8EE2A955A290007684C /* ArtistsViewController.swift in Sources */,
 				D9912B9E2A8931EC00B0AB34 /* TitleSongSectionCell.swift in Sources */,
 				D9EEDF072A71876D007E1B1E /* DataManager.swift in Sources */,
 				D9EA94C12A5498BE000EB731 /* AppDelegate.swift in Sources */,
