@@ -8,19 +8,53 @@
 
 import UIKit
 
-struct Song : Equatable  {
-    let imageName : UIImage?
-    let songName : String?
+struct Artist : Equatable {
+    let artistId : Int?
     let artistName : String?
-    let genreName : String?
-    let ratingNumber : Int?
-    let lyrics : String?
-    init(imageName: UIImage?, songName: String?, artistName: String?, genreName: String?, ratingNumber: Int?, lyrics: String?) {
-        self.imageName = imageName
-        self.songName = songName
+    let artistImage : UIImage?
+    let artistDescription : String?
+    let artistAlbums : [Album]
+    
+    init(artistId: Int?, artistName: String?, artistImage: UIImage?, artistDescription: String?, artistAlbums: [Album]) {
+        self.artistId = artistId
         self.artistName = artistName
-        self.genreName = genreName
-        self.ratingNumber = ratingNumber
-        self.lyrics = lyrics
+        self.artistImage = artistImage
+        self.artistDescription = artistDescription
+        self.artistAlbums = artistAlbums
+    }
+    
+}
+
+struct Song : Equatable  {
+    let songId : Int?
+    let songImage : UIImage?
+    let songName : String?
+    let songArtist : Artist
+    let songGenre : String?
+    let songRating : Int?
+    let songLyrics : String?
+    
+    init(songId: Int?, songImage: UIImage?, songName: String?, songArtist: Artist, songGenre: String?, songRating: Int?, songLyrics: String?) {
+        self.songId = songId
+        self.songImage = songImage
+        self.songName = songName
+        self.songArtist = songArtist
+        self.songGenre = songGenre
+        self.songRating = songRating
+        self.songLyrics = songLyrics
+    }
+}
+
+struct Album : Equatable {
+    let albumId : Int?
+    let albumName: String?
+    let albumArtist: Artist
+    let albumSongs : [Song]
+    
+    init (albumId : Int?, albumName: String?, albumArtist: Artist, albumSongs : [Song]) {
+        self.albumId = albumId
+        self.albumName = albumName
+        self.albumArtist = albumArtist
+        self.albumSongs = albumSongs
     }
 }

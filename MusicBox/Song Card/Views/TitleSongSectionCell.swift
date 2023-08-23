@@ -49,11 +49,11 @@ class TitleSongSection: UITableViewCell {
         ])
     }
     func configure(with song: Song) {
-          songTitleLabel.text = (song.songName ?? "Unknown Song") + " - " + (song.artistName ?? "Unknown Artist")
+        songTitleLabel.text = (song.songName ?? "Unknown Song") + " - " + (song.songArtist.artistName ?? "Unknown Artist")
         songTitleLabel.textColor = UIColor.white
-        songGenreLabel.text = "Genre: " + (song.genreName ?? "Unknown Song")
+        songGenreLabel.text = "Genre: " + (song.songGenre ?? "Unknown Song")
         songGenreLabel.textColor = UIColor.white
-        songRatingLabel.text = "Songs rating: " + String((song.ratingNumber ?? 0))
+        songRatingLabel.text = "Songs rating: " + String((song.songRating ?? 0))
         songRatingLabel.textColor = UIColor.white
         songTitleLabel.font = UIFont.systemFont(ofSize: 19)
         songGenreLabel.font = UIFont.systemFont(ofSize: 14)

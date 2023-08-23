@@ -143,7 +143,7 @@ class OtherSongsCollectionView : UICollectionViewCell {
         otherSongTitleLabel.font = UIFont.systemFont(ofSize: 10)
        // contentView.backgroundColor = UIColor.purple
         
-        if let songImage = song.imageName {
+        if let songImage = song.songImage {
             otherSongImageLabel.image = songImage
         } else {
             otherSongImageLabel.image = UIImage(named: "default Image")

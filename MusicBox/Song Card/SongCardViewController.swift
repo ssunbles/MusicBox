@@ -109,7 +109,7 @@ class SongCardViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "imageSongSection", for: indexPath) as! ImageSongSectionCell
-            if let songImage = song?.imageName {
+            if let songImage = song?.songImage {
                 cell.songImageView.image = songImage
             }
             return cell
@@ -123,7 +123,7 @@ class SongCardViewController: UIViewController, UITableViewDelegate, UITableView
         }
         else if indexPath.section == 2 {
             let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "lyricSongSection", for: indexPath) as! LyricSongSection
-            if let songLyrics = song?.lyrics {
+            if let songLyrics = song?.songLyrics {
                 cell.configure(with : songLyrics)
             }
             cell.expandButtonAction = { [weak self] in

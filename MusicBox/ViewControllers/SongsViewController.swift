@@ -55,9 +55,9 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewOfSongs.dequeueReusableCell(withIdentifier: "sectionOfSongs", for: indexPath) as! SectionOfSongs
         let song = songs [indexPath.row]
-        cell.songImageView.image = song.imageName
+        cell.songImageView.image = song.songImage
         cell.songTitle.text = song.songName
-        cell.artistLabel.text = song.artistName
+        cell.artistLabel.text = song.songArtist.artistName
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
