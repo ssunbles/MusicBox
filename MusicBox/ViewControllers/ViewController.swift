@@ -99,6 +99,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let songsViewController = SongsViewController(songs: songsArray)
             navigationController?.pushViewController(songsViewController, animated: true)
         }
+        
+        else if tag == 3 {
+            let artistsArray: [Artist] = DataManager.artists
+            let artistsViewController = ArtistsViewController(artists: artistsArray)
+            navigationController?.pushViewController(artistsViewController, animated: true)
+        }
     
         
     }

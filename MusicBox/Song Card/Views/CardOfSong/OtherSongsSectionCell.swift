@@ -15,7 +15,7 @@ protocol SongSelectionDelegate : AnyObject {
 class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     enum Guidelines {
-        static let otherSongCellHeightInCollection: CGFloat = 100
+        static let otherSongCellHeightInCollection: CGFloat = 150
         static let otherSongFirstTitleForCell: CGFloat = 15
     }
     
@@ -67,9 +67,7 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
                 make.height.equalTo(20)
             }
             
-            //Настройка collectionView и CollectionViewManager
-            collectionView.delegate = self
-            collectionView.dataSource = self
+           
             
             // добавляем коллекцию в ячейку
             containerView.addSubview(collectionView)
@@ -92,8 +90,9 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
         cell.configure(with: song)
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 500, height: 500)
+        return CGSize(width: 150, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
