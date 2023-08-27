@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Artist : Equatable {
+struct Artist : Equatable, Hashable {
     let artistId : Int?
     let artistName : String?
     let artistImage : UIImage?
@@ -21,6 +21,9 @@ struct Artist : Equatable {
         self.artistImage = artistImage
         self.artistDescription = artistDescription
         self.artistAlbums = artistAlbums
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(artistId)
     }
     
 }

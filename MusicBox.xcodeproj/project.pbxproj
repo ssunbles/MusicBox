@@ -17,8 +17,13 @@
 		D9E6A7442A9924E4007279B5 /* ReusableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7432A9924E4007279B5 /* ReusableCellProtocol.swift */; };
 		D9E6A7462A99270B007279B5 /* SectionOfArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7452A99270B007279B5 /* SectionOfArtists.swift */; };
 		D9E6A7492A994FBF007279B5 /* ArtistsCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7482A994FBF007279B5 /* ArtistsCardViewController.swift */; };
-		D9E6A74B2A995629007279B5 /* TitleArtistImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A74A2A995629007279B5 /* TitleArtistImageView.swift */; };
+		D9E6A74B2A995629007279B5 /* TitleArtistImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A74A2A995629007279B5 /* TitleArtistImageViewCell.swift */; };
 		D9E6A7572A995960007279B5 /* SectionOfSongs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7562A995960007279B5 /* SectionOfSongs.swift */; };
+		D9E6A7592A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7582A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift */; };
+		D9E6A75B2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A75A2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift */; };
+		D9E6A75D2A9A883C007279B5 /* ArtistDescriptionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A75C2A9A883C007279B5 /* ArtistDescriptionViewCell.swift */; };
+		D9E6A75F2A9A885B007279B5 /* OtherArtistsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A75E2A9A885B007279B5 /* OtherArtistsViewCell.swift */; };
+		D9E6A7612A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7602A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift */; };
 		D9EA94C12A5498BE000EB731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EA94C02A5498BE000EB731 /* AppDelegate.swift */; };
 		D9EA94C52A5498BE000EB731 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EA94C42A5498BE000EB731 /* ViewController.swift */; };
 		D9EA94CA2A5498C0000EB731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9EA94C92A5498C0000EB731 /* Assets.xcassets */; };
@@ -38,8 +43,13 @@
 		D9E6A7432A9924E4007279B5 /* ReusableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableCellProtocol.swift; path = MusicBox/Models/ReusableCellProtocol.swift; sourceTree = SOURCE_ROOT; };
 		D9E6A7452A99270B007279B5 /* SectionOfArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionOfArtists.swift; path = "MusicBox/Song Card/Views/ListOfArtists/SectionOfArtists.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6A7482A994FBF007279B5 /* ArtistsCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCardViewController.swift; sourceTree = "<group>"; };
-		D9E6A74A2A995629007279B5 /* TitleArtistImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleArtistImageView.swift; path = "MusicBox/Song Card/Views/CardOfArtist/TitleArtistImageView.swift"; sourceTree = SOURCE_ROOT; };
+		D9E6A74A2A995629007279B5 /* TitleArtistImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleArtistImageViewCell.swift; path = "MusicBox/Song Card/Views/CardOfArtist/TitleArtistImageViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6A7562A995960007279B5 /* SectionOfSongs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfSongs.swift; sourceTree = "<group>"; };
+		D9E6A7582A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularSongsOfArtistViewCell.swift; sourceTree = "<group>"; };
+		D9E6A75A2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsOfArtistViewCell.swift; sourceTree = "<group>"; };
+		D9E6A75C2A9A883C007279B5 /* ArtistDescriptionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDescriptionViewCell.swift; sourceTree = "<group>"; };
+		D9E6A75E2A9A885B007279B5 /* OtherArtistsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherArtistsViewCell.swift; sourceTree = "<group>"; };
+		D9E6A7602A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopularSongsCollectionViewCell.swift; path = CollectionViewCells/PopularSongsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D9EA94BD2A5498BE000EB731 /* MusicBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9EA94C02A5498BE000EB731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9EA94C42A5498BE000EB731 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +150,12 @@
 		D9E6A7542A995897007279B5 /* CardOfArtist */ = {
 			isa = PBXGroup;
 			children = (
-				D9E6A74A2A995629007279B5 /* TitleArtistImageView.swift */,
+				D9E6A74A2A995629007279B5 /* TitleArtistImageViewCell.swift */,
+				D9E6A7582A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift */,
+				D9E6A7602A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift */,
+				D9E6A75A2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift */,
+				D9E6A75C2A9A883C007279B5 /* ArtistDescriptionViewCell.swift */,
+				D9E6A75E2A9A885B007279B5 /* OtherArtistsViewCell.swift */,
 			);
 			path = CardOfArtist;
 			sourceTree = "<group>";
@@ -264,22 +279,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9E6A75F2A9A885B007279B5 /* OtherArtistsViewCell.swift in Sources */,
 				D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */,
 				D9EA94C52A5498BE000EB731 /* ViewController.swift in Sources */,
 				D9EEDF0B2A718AD5007E1B1E /* SongCardViewController.swift in Sources */,
+				D9E6A7612A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift in Sources */,
 				D9E6A7572A995960007279B5 /* SectionOfSongs.swift in Sources */,
 				D9EEDF092A718944007E1B1E /* SongsViewController.swift in Sources */,
 				D9912BA62A89337B00B0AB34 /* Song.swift in Sources */,
+				D9E6A75B2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift in Sources */,
 				D9912BA32A89326300B0AB34 /* OtherSongsSectionCell.swift in Sources */,
 				D9E6A7442A9924E4007279B5 /* ReusableCellProtocol.swift in Sources */,
 				D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */,
-				D9E6A74B2A995629007279B5 /* TitleArtistImageView.swift in Sources */,
+				D9E6A74B2A995629007279B5 /* TitleArtistImageViewCell.swift in Sources */,
 				D95FD8EE2A955A290007684C /* ArtistsViewController.swift in Sources */,
 				D9912B9E2A8931EC00B0AB34 /* TitleSongSectionCell.swift in Sources */,
 				D9EEDF072A71876D007E1B1E /* DataManager.swift in Sources */,
+				D9E6A7592A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift in Sources */,
 				D9E6A7492A994FBF007279B5 /* ArtistsCardViewController.swift in Sources */,
 				D9EA94C12A5498BE000EB731 /* AppDelegate.swift in Sources */,
 				D9E6A7462A99270B007279B5 /* SectionOfArtists.swift in Sources */,
+				D9E6A75D2A9A883C007279B5 /* ArtistDescriptionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

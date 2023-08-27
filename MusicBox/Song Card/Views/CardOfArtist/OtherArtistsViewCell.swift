@@ -1,5 +1,5 @@
 //
-//  TitleArtistImageView.swift
+//  OtherArtistsViewCell.swift
 //  MusicBox
 //
 //  Created by Айнур on 26.08.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleArtistImageView: UITableViewCell {
+class OtherArtistsViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
