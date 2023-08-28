@@ -20,13 +20,13 @@ class TitleArtistImageViewCell: UITableViewCell {
     }
     
     private func setupViews() {
-        artistImageView.contentMode = .scaleAspectFit
+        artistImageView.contentMode = .scaleAspectFill
         artistImageView.clipsToBounds  = true
         contentView.addSubview(artistImageView)
         artistImageView.translatesAutoresizingMaskIntoConstraints = false
         artistImageView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
-            make.height.equalTo(280)
+            make.height.equalTo(50)
         }
     }
     

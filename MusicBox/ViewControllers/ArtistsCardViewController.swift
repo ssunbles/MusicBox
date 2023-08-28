@@ -53,17 +53,16 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
         tableViewArtistCard.dataSource = self
         
         // регистрация ячейки для таблицы
-        tableViewArtistCard.register(TitleArtistImageViewCell.self, forCellReuseIdentifier: TitleArtistImageViewCell.self.identifier)
+        tableViewArtistCard.register(TitleArtistImageViewCell.self, forCellReuseIdentifier: TitleArtistImageViewCell.identifier)
         
-        tableViewArtistCard.register(PopularSongsOfArtistViewCell.self, forCellReuseIdentifier: PopularSongsOfArtistViewCell.self.identifier)
+        tableViewArtistCard.register(PopularSongsOfArtistViewCell.self, forCellReuseIdentifier: PopularSongsOfArtistViewCell.identifier)
         
-        tableViewArtistCard.register(AlbumsOfArtistViewCell.self, forCellReuseIdentifier: AlbumsOfArtistViewCell.self.identifier)
+        tableViewArtistCard.register(AlbumsOfArtistViewCell.self, forCellReuseIdentifier: AlbumsOfArtistViewCell.identifier)
         
-        tableViewArtistCard.register(ArtistDescriptionViewCell.self, forCellReuseIdentifier: ArtistDescriptionViewCell.self.identifier)
+        tableViewArtistCard.register(ArtistDescriptionViewCell.self, forCellReuseIdentifier: ArtistDescriptionViewCell.identifier)
         
-        tableViewArtistCard.register(OtherArtistsViewCell.self, forCellReuseIdentifier: OtherArtistsViewCell.self.identifier)
+        tableViewArtistCard.register(OtherArtistsViewCell.self, forCellReuseIdentifier: OtherArtistsViewCell.identifier)
         
-        containerView.addSubview(tableViewArtistCard)
         tableViewArtistCard.separatorStyle = .none
         tableViewArtistCard.translatesAutoresizingMaskIntoConstraints = false
         tableViewArtistCard.isScrollEnabled = true
@@ -111,13 +110,22 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
             if let artist = artist {
                 let popularSongs = getPopularSongs (for: artist)
                 cell.artistSongs = popularSongs
-                cell.setupCollectionView()
-
             }
             return cell
         }
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            return 150
+    
+        }
+        return UITableView.automaticDimension
+    }
+    
+    
     func getPopularSongs (for artist: Artist) -> [Song] {
         if let popularSongs = artistSongsDict [artist] {
         return popularSongs

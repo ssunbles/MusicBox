@@ -18,7 +18,7 @@ class ImageSongSectionCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     private func setupViews() {
-        songImageView.contentMode = .scaleAspectFit
+        songImageView.contentMode = .scaleAspectFill
         songImageView.clipsToBounds = true
         contentView.addSubview(songImageView)
         

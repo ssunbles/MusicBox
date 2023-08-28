@@ -33,7 +33,8 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
             layout.scrollDirection = .horizontal
             return collectionView
         }()
-        override init (style: UITableViewCell.CellStyle, reuseIdentifier : String?) {
+        override init (style: UITableViewCell.CellStyle, reuseIdentifier : String?)
+     {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
             //регистрируем ячейку перед использованием
@@ -80,7 +81,7 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
-    //MARK: Методы коллекции
+    //MARK: -Методы коллекции
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return otherSongs.count
     }

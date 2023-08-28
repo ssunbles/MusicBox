@@ -25,3 +25,4 @@ extension ReusableCellProtocol {
 
 extension UITableViewCell : ReusableCellProtocol {}
 extension UICollectionView : ReusableCellProtocol {}
+extension UICollectionViewCell : ReusableCellProtocol {}
