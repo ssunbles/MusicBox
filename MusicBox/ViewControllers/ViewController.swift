@@ -49,12 +49,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "firstSectionCell", for: indexPath) as! FirstSectionCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "firstSectionCell", for: indexPath) as? FirstSectionCell else { return UITableViewCell() }
             cell.configure()
             cell.selectionStyle = .none
             return cell
         } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "secondSectionCell", for: indexPath) as! SecondSectionCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "secondSectionCell", for: indexPath) as? SecondSectionCell else { return UITableViewCell() }
             cell.configure(title: buttons[indexPath.row], tag: indexPath.row)
             cell.selectionStyle = .none
             cell.delegate = self

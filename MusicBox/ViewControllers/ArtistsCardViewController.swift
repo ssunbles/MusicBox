@@ -99,14 +99,14 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: TitleArtistImageViewCell.identifier, for: indexPath) as! TitleArtistImageViewCell
+            guard let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: TitleArtistImageViewCell.identifier, for: indexPath) as? TitleArtistImageViewCell else { return UITableViewCell() }
             if let artistImage = artist?.artistImage {
                 cell.artistImageView.image = artistImage
             }
             return cell
             }
         else if indexPath.section == 1 {
-                let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: PopularSongsOfArtistViewCell.identifier, for: indexPath) as! PopularSongsOfArtistViewCell
+            guard let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: PopularSongsOfArtistViewCell.identifier, for: indexPath) as? PopularSongsOfArtistViewCell else { return UITableViewCell() }
             if let artist = artist {
                 let popularSongs = getPopularSongs (for: artist)
                 cell.artistSongs = popularSongs

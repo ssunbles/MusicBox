@@ -22,7 +22,7 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
     let popularTitleLabel = UILabel()
     var allSongsOfArtistButton = UIButton()
     
-    private var collectionView : UICollectionView {
+    private var collectionView : UICollectionView  = {
        // свойства
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -34,7 +34,7 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
         layout.collectionView?.translatesAutoresizingMaskIntoConstraints = false
         layout.scrollDirection = .horizontal
         return collectionView
-    }
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         //MARK: - инициализация
@@ -71,17 +71,19 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
             make.top.equalToSuperview().offset(5)
             make.leading.trailing.equalToSuperview().inset(20)
             make.height.equalTo(20)
+            make.bottom.lessThanOrEqualToSuperview()
+
         }
         
         allSongsOfArtistButton.snp.makeConstraints { make in
-            make.trailing.bottom.equalTo(mainContainer).inset(5)
+            make.trailing.bottom.equalToSuperview().inset(5)
             make.height.equalTo(20)
         }
     
         
         collectionView.snp.makeConstraints { make in
-           make.top.equalTo(popularTitleLabel.snp.bottom).offset(5)
-            make.leading.trailing.bottom.equalTo(mainContainer)
+            make.top.equalTo(popularTitleLabel).offset(5)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(80)
         }
 
@@ -103,7 +105,7 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularSongsCollectionViewCell.identifier, for: indexPath) as! PopularSongsCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularSongsCollectionViewCell.identifier, for: indexPath) as? PopularSongsCollectionViewCell else { return UICollectionViewCell() }
         let song = artistSongs [indexPath.row]
         cell.configure( with: song)
         return cell

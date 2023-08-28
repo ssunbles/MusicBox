@@ -55,8 +55,4 @@ class PopularSongsCollectionViewCell: UICollectionViewCell {
         popularSongArtistNameLabel.font = UIFont.systemFont(ofSize: 10)
         popularSongsNameOfSongLabel.font = UIFont.systemFont(ofSize: 10)
     }
-    
-    
-    
-    
 }

@@ -86,7 +86,9 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
         return otherSongs.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OtherSongsCollection", for: indexPath) as! OtherSongsCollectionView
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OtherSongsCollection", for: indexPath) as? OtherSongsCollectionView else {
+            return UICollectionViewCell()
+        }
         let song = otherSongs[indexPath.row]
         cell.configure(with: song)
         return cell

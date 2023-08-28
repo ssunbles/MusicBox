@@ -108,21 +108,21 @@ class SongCardViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "imageSongSection", for: indexPath) as! ImageSongSectionCell
+            guard let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "imageSongSection", for: indexPath) as? ImageSongSectionCell else { return UITableViewCell() }
             if let songImage = song?.songImage {
                 cell.songImageView.image = songImage
             }
             return cell
         }
         else if indexPath.section == 1 {
-            let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "titleSongSection", for: indexPath) as! TitleSongSection
+            guard let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "titleSongSection", for: indexPath) as? TitleSongSection else { return UITableViewCell () }
             if let song = song {
                 cell.configure(with: song)
             }
             return cell
         }
         else if indexPath.section == 2 {
-            let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "lyricSongSection", for: indexPath) as! LyricSongSection
+            guard let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "lyricSongSection", for: indexPath) as? LyricSongSection else { return UITableViewCell() }
             if let songLyrics = song?.songLyrics {
                 cell.configure(with : songLyrics)
             }
@@ -133,7 +133,7 @@ class SongCardViewController: UIViewController, UITableViewDelegate, UITableView
             return cell
         }
         else if indexPath.section == 3 {
-            let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "otherSongsSection", for: indexPath) as! OtherSongsSection
+            guard let cell = tableViewSongCard.dequeueReusableCell(withIdentifier: "otherSongsSection", for: indexPath) as? OtherSongsSection else { return UITableViewCell() }
             cell.otherSongs = DataManager.songs.filter { $0 != song }
             cell.delegate = self
             return cell

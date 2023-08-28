@@ -86,7 +86,7 @@ class ArtistsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // создаем ячейку с конфигурациями из SectionOfArtists
-        let cell = tableViewOfArtists.dequeueReusableCell (withIdentifier: SectionOfArtists.identifier, for: indexPath) as! SectionOfArtists
+        guard let cell = tableViewOfArtists.dequeueReusableCell (withIdentifier: SectionOfArtists.identifier, for: indexPath) as? SectionOfArtists else { return UITableViewCell() }
        
         // добавляем артистов
         let artists = artists [indexPath.row]

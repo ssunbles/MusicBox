@@ -53,7 +53,7 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return songs.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewOfSongs.dequeueReusableCell(withIdentifier: "sectionOfSongs", for: indexPath) as! SectionOfSongs
+        guard let cell = tableViewOfSongs.dequeueReusableCell(withIdentifier: "sectionOfSongs", for: indexPath) as? SectionOfSongs else { return UITableViewCell() }
         let song = songs [indexPath.row]
         cell.songImageView.image = song.songImage
         cell.songTitle.text = song.songName
