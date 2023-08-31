@@ -9,9 +9,11 @@
 import UIKit
 
 class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    //MARK: - свойства
     let songs: [Song]
     let tableViewOfSongs = UITableView()
     let titleButton = UIButton(type: .system)
+    
     init(songs: [Song]) {
         self.songs = songs
         super.init(nibName: nil, bundle: nil)
@@ -19,13 +21,15 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //MARK: - Контейнер
         let containerView = UIView()
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.addSubview(tableViewOfSongs)
-        containerView.addSubview(navigationController!.navigationBar)
+               
+        //MARK: - Title
         titleButton.setTitle("Список песен", for: .normal)
         navigationItem.titleView = titleButton
         titleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -35,6 +39,8 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             make.leading.equalTo(view)
             make.trailing.equalTo(view)
         }
+        containerView.addSubview(navigationController!.navigationBar)
+
         //MARK: - Создаем таблицу и задаем ей размерность
         tableViewOfSongs.delegate = self
         tableViewOfSongs.dataSource = self
@@ -47,6 +53,7 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableViewOfSongs.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             tableViewOfSongs.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+        containerView.addSubview(tableViewOfSongs)
     }
     //MARK: - Методы таблицы
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

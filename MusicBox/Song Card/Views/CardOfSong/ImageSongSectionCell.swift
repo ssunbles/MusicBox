@@ -9,6 +9,7 @@
 import UIKit
 
 class ImageSongSectionCell : UITableViewCell {
+    
     let songImageView = UIImageView()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

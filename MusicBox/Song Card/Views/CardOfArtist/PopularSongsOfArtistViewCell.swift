@@ -9,63 +9,52 @@ import UIKit
 
 class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
    
-    //MARK: -инициализация переменных
+    //MARK: -инициализация свойств
     // экземпляр  песен артиста
     var artistSongs : [Song] = []
    
     enum Guidelines {
-        static let PopularSongsHeightItem : CGFloat = 80
-        static let PopularSongsWidthItem : CGFloat = 100
+        static let PopularSongsHeightItem : CGFloat = 60
+        static let PopularSongsWidthItem : CGFloat = 160
     }
     //  контейнер для коллекции и тайтл
     let mainContainer = UIView()
     let popularTitleLabel = UILabel()
     var allSongsOfArtistButton = UIButton()
     
+  
+    
+    //MARK: - Инициализация коллекции
     private var collectionView : UICollectionView  = {
        // свойства
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
        
         // конфигурации
         layout.sectionInset = .init(top: 0, left: 15, bottom: 0, right: 15)
-        collectionView.backgroundColor = UIColor.black
         layout.collectionView?.translatesAutoresizingMaskIntoConstraints = false
         layout.scrollDirection = .horizontal
         return collectionView
     }()
     
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         //MARK: - инициализация
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        collectionView.register(PopularSongsCollectionViewCell.self, forCellWithReuseIdentifier: PopularSongsCollectionViewCell.identifier)
-        setupCollectionView()
-        allSongsOfArtistButton = UIButton(type: .system)
         
-        //MARK: -Конфигурации вида
+        //MARK: - Контейнер
         mainContainer.backgroundColor = UIColor(red: 218/256, green: 179/256, blue: 179/256, alpha: 1)
-        popularTitleLabel.text = "Популярные треки"
-        popularTitleLabel.font = UIFont.systemFont(ofSize: 15)
-        allSongsOfArtistButton.setTitle("Все песни", for: .normal)
-        
-        //MARK: -Добавление в родительские
         contentView.addSubview(mainContainer)
-        mainContainer.addSubview(popularTitleLabel)
-        mainContainer.addSubview(allSongsOfArtistButton)
-        mainContainer.addSubview(collectionView)
-        
-        //MARK: - Ограничения
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        mainContainer.translatesAutoresizingMaskIntoConstraints = false
-        popularTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        allSongsOfArtistButton.translatesAutoresizingMaskIntoConstraints = false
-       
         
         //SnapKit
         mainContainer.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+   
+        //MARK: - раздел популярные треки
+        popularTitleLabel.text = "Популярные треки"
+        popularTitleLabel.font = UIFont.systemFont(ofSize: 15)
+        mainContainer.addSubview(popularTitleLabel)
         
         popularTitleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(5)
@@ -75,24 +64,39 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
 
         }
         
-        allSongsOfArtistButton.snp.makeConstraints { make in
-            make.trailing.bottom.equalToSuperview().inset(5)
-            make.height.equalTo(20)
-        }
-    
+        //MARK: - Коллекция
+        collectionView.register(PopularSongsCollectionViewCell.self, forCellWithReuseIdentifier: PopularSongsCollectionViewCell.identifier)
+        setupCollectionView()
+        mainContainer.addSubview(collectionView)
+        collectionView.backgroundColor = UIColor(red: 218/256, green: 179/256, blue: 179/256, alpha: 1)
+
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(popularTitleLabel).offset(5)
+            make.top.equalTo(popularTitleLabel.snp.bottom)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(80)
         }
-
-
+        
+       
+        
+        //MARK: - allSongsOfArtistButton
+        allSongsOfArtistButton = UIButton(type: .system)
+        allSongsOfArtistButton.setTitle("Все песни", for: .normal)
+        mainContainer.addSubview(allSongsOfArtistButton)
+        
+        allSongsOfArtistButton.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom)
+            make.trailing.bottom.equalToSuperview().inset(5)
+            make.height.equalTo(20)
+        }
+       // allSongsOfArtistButton.addTarget(self, action: #selector(toggleExpansion), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+   
     
    //MARK: - методы коллекции
     internal func setupCollectionView() {
@@ -110,12 +114,10 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
         cell.configure( with: song)
         return cell
     }
-    
+}
+
+extension PopularSongsOfArtistViewCell  : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: Guidelines.PopularSongsWidthItem, height: Guidelines.PopularSongsHeightItem)
     }
- 
-    
 }
-
-

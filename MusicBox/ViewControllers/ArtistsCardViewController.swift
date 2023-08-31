@@ -12,9 +12,8 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
     //свойство для хранения информации о выбранном артисте
     var artist : Artist?
     var artistSongsDict: [Artist: [Song]] = [:]
+    var artistAlbumsDict: [Artist: [Album]] = [:]
     let tableViewArtistCard = UITableView()
-    
-   
     
     //Инициализация класса
     init(artist: Artist?) {
@@ -31,57 +30,52 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
         for artist in DataManager.artists {
             let songsOfArtist = DataManager.songs.filter { $0.songArtist == artist }
             artistSongsDict[artist] = songsOfArtist
+            let albumsOfArtist = DataManager.albums.filter { $0.albumArtist == artist }
+             artistAlbumsDict [artist] = albumsOfArtist
         }
         
-        //MARK: - Конфигурации для вьюшек
+        //MARK: - контейнер
         // конфигурации для контейнера
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(containerView)
-        containerView.addSubview(tableViewArtistCard)
-        containerView.addSubview(navigationController!.navigationBar)
-        
-        //конфигурации для кнопки - главная
-        let artistsTitleButton = UIButton(type: .system)
-        artistsTitleButton.setTitle("Главная", for: .normal)
-        artistsTitleButton.addTarget(self, action: #selector(goToRootVC), for: .touchUpInside)
-        navigationItem.titleView = artistsTitleButton
-        artistsTitleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        
-        //MARK: -конфигурации для таблицы
-        tableViewArtistCard.delegate = self
-        tableViewArtistCard.dataSource = self
-        
-        // регистрация ячейки для таблицы
-        tableViewArtistCard.register(TitleArtistImageViewCell.self, forCellReuseIdentifier: TitleArtistImageViewCell.identifier)
-        
-        tableViewArtistCard.register(PopularSongsOfArtistViewCell.self, forCellReuseIdentifier: PopularSongsOfArtistViewCell.identifier)
-        
-        tableViewArtistCard.register(AlbumsOfArtistViewCell.self, forCellReuseIdentifier: AlbumsOfArtistViewCell.identifier)
-        
-        tableViewArtistCard.register(ArtistDescriptionViewCell.self, forCellReuseIdentifier: ArtistDescriptionViewCell.identifier)
-        
-        tableViewArtistCard.register(OtherArtistsViewCell.self, forCellReuseIdentifier: OtherArtistsViewCell.identifier)
-        
-        tableViewArtistCard.separatorStyle = .none
-        tableViewArtistCard.translatesAutoresizingMaskIntoConstraints = false
-        tableViewArtistCard.isScrollEnabled = true
-        
-        
         
         //MARK: -Констреинты
         containerView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
         
+        
+        //MARK: - Кнопка
+        let artistsTitleButton = UIButton(type: .system)
+        artistsTitleButton.setTitle("Главная", for: .normal)
+        artistsTitleButton.addTarget(self, action: #selector(goToRootVC), for: .touchUpInside)
+        navigationItem.titleView = artistsTitleButton
+        artistsTitleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        containerView.addSubview(navigationController!.navigationBar)
+        
+        //MARK: -Таблица
+        tableViewArtistCard.delegate = self
+        tableViewArtistCard.dataSource = self
+        containerView.addSubview(tableViewArtistCard)
+        
+        // регистрация ячейки для таблицы
+        tableViewArtistCard.register(TitleArtistImageViewCell.self, forCellReuseIdentifier: TitleArtistImageViewCell.identifier)
+        tableViewArtistCard.register(PopularSongsOfArtistViewCell.self, forCellReuseIdentifier: PopularSongsOfArtistViewCell.identifier)
+        tableViewArtistCard.register(AlbumsOfArtistViewCell.self, forCellReuseIdentifier: AlbumsOfArtistViewCell.identifier)
+        tableViewArtistCard.register(ArtistDescriptionViewCell.self, forCellReuseIdentifier: ArtistDescriptionViewCell.identifier)
+        tableViewArtistCard.register(OtherArtistsViewCell.self, forCellReuseIdentifier: OtherArtistsViewCell.identifier)
+        
+        //tableViewArtistCard.separatorStyle = .none
+        tableViewArtistCard.translatesAutoresizingMaskIntoConstraints = false
+        tableViewArtistCard.isScrollEnabled = true
+        
+        //MARK: -Констреинты
         tableViewArtistCard.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.bottom.trailing.leading.equalTo(containerView)
         }
     }
-    
-    
-    
     
     //MARK: - Методы таблицы и кнопок
     @objc func goToRootVC () {
@@ -113,22 +107,33 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
             }
             return cell
         }
+        else if indexPath.section == 2 {
+            guard let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: AlbumsOfArtistViewCell.identifier, for: indexPath) as? AlbumsOfArtistViewCell else { return UITableViewCell() }
+            if let artist = artist {
+                let artistAlbums = getPopularSongs(for: artist)
+            }
+        }
+        
+        
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.section == 0 {
-            return 150
-    
-        }
         return UITableView.automaticDimension
     }
-    
-    
+
     func getPopularSongs (for artist: Artist) -> [Song] {
         if let popularSongs = artistSongsDict [artist] {
         return popularSongs
+        } else
+        {
+            return []
+        }
+    }
+    
+    func getArtistAlbums (for artist: Artist) -> [Song] {
+        if let popularAlbums = artistSongsDict [artist] {
+        return popularAlbums
         } else
         {
             return []

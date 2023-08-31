@@ -14,6 +14,8 @@ class DataManager {
     private static var currentArtistId = 0
     private static var currentAlbumId = 0
 
+    
+    //MARK: - Методы для подсчитывания
     static func getNextSongId() -> Int {
         currentSongId += 1
         return currentSongId
@@ -44,6 +46,7 @@ class DataManager {
         let album = Album(albumId: getNextAlbumId(), albumName: albumName, albumArtist: albumArtist, albumSongs: albumSongs)
         return album
     }
+    
     
     //MARK: - создание массива
     static let artists : [Artist] = [
@@ -641,10 +644,95 @@ class DataManager {
         I look for ways to say, «I love you»
         But I ain’t into makin’ love songs
         Baby I’m just rappin’ to this LSD
-        """)
+        """),
             
+            DataManager.createSong(songImage: UIImage(named: "bestDayEver"), songName: "Best Day Ever", songArtist: artists[6], songGenre: "Hip-hop", songRating: 8, songLyrics: """
+        I never take a day off
+        Work around the clock, my engineer gettin' paid off
+        Rock like Aesop, light the weed and take off
+        So high I cannot see, Adolf
+        Now I got these rappers all breakin' up a sweat
+        'Cause every time I get up on the mic, it come correct
+        And I learned it from the best, always dressed in somethin' fresh
+        Lookin' for a little dime, big butt and nice chest
+        Yes, they heard I used to rock Guess
+        But now I'm rockin' clothes that ain't in the stores yet
+        Travel back in time, I'm in a vortex
+        Tryna to make it work out, think I need more reps
+        Used to take a bus, now the boy board jets
+        'Cause kids got me buzzin' like a fuckin' hornet
+        They say I got next, tell 'em that I got now
+        It's all Disney boy, my family Proud
+        Make 'em say, "Ow, " make 'em say, "Oh"
+        The hoes that tell me, "Yes", the same ones that tell you, "No"
+        Whoa, I ain't just an Average Joe, way above the average flow
+        Boy, my life is most dope
+        No matter where life takes me, find me with a smile
+        Pursuit to be happy, only laughing like a child
+        I never thought life would be this sweet
+        It got me cheesin' from cheek to cheek (ayy, ayy)
+        And I ain't gonna wait for nothing 'cause that just ain't my style
+        Life couldn't get better, this gon' be the best day ever
+        If it ain't about a dream, then it ain't about me
+        Go a couple full weeks without a good night's sleep
+        Imagination, makin', musical creation
+        The journey that I'm facin' plus the paper that I'm chasin'
+        Got me crazy, half insane and with the lames I see you hatin'
+        But there's nothing' that you're changin', thumbs up, I'm maintainin'
+        No complainin' when it's rainin', I'll be in another zone
+        Move out my mother's home to a world I call my own
+        I ain't gonna play around no more
+        Found a difference from the ground and the floor
+        If we got a fight, I'll be down for the war
+        Thumbs up, homie, I'll be sure
+        No matter where life takes me, find me with a smile
+        Pursuit to be happy, only laughing like a child
+        I never thought life would be this sweet
+        It got me cheesin' from cheek to cheek (ayy, ayy)
+        And I ain't gonna wait for nothing 'cause that just ain't my style
+        Life couldn't get better, this gon' be the best day ever
+        """),
+           
+            DataManager.createSong(songImage: UIImage(named: "macCircles"), songName: "Once a Day", songArtist: artists[6], songGenre: "Hip-hop", songRating: 9, songLyrics: """
+        Once a day I rise
+        Once a day I fall asleep with you
+        Once a day I try but I can't find a single word
+
+        I wonder what they know
+        I wonder if they ever even cared at all
+        I wonder do they see their own reflection in the rain
+        And look away
+
+        Everybody keep rushing
+        Why aren't we taking our time?
+        Every now and again, baby, I get high
+
+        Don't ask me what I think
+        It never really mattered what I had to say
+        I just keep waiting for another open door
+        To come up soon
+
+        Don't keep it all in your head
+        The only place that you know nobody ever can see
+        You're running low on regret
+        No tears that's keeping you wet
+        I think you getting it now
+
+        But everybody keep rushing
+        Why aren't we taking our time?
+        Every now and again, baby, I get high
+
+        And everybody means something
+        When they're stuck on your mind
+        But every now and again why can't we just be fine?
+
+        Once a day I rise
+        Once a day I fall asleep with you
+        Once a day I try but I can't find a single word
+        """),
     ]
- 
+    
+    //MARK: - массивы альбомов
     static let albums : [Album] = [
         DataManager.createAlbum(albumName: "Wheels of Fire", albumArtist: artists[0], albumSongs: [songs [0]]),
         DataManager.createAlbum(albumName: "Toosie Slide", albumArtist: artists[3], albumSongs: [songs [1]]),
@@ -654,11 +742,9 @@ class DataManager {
         DataManager.createAlbum(albumName: "SKINS", albumArtist: artists[7], albumSongs: [songs [5]]),
         DataManager.createAlbum(albumName: "Macadelic", albumArtist: artists[6], albumSongs: [songs [6]]),
         DataManager.createAlbum(albumName: "At. Long. Last. ASAP", albumArtist: artists[5], albumSongs: [songs [7]]),
-        
-        
-        
-        
-        
+        DataManager.createAlbum(albumName: "Best Day Ever (5th Anniversary Remastered Edition)", albumArtist: artists[6], albumSongs: [songs [8]]),
+        DataManager.createAlbum(albumName: "Circles", albumArtist: artists[6], albumSongs: [songs [9]])
+
         ]
 }
 

@@ -19,16 +19,16 @@ class TitleArtistImageViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     private func setupViews() {
+        //MARK: - фото артиста
         artistImageView.contentMode = .scaleAspectFill
         artistImageView.clipsToBounds  = true
         contentView.addSubview(artistImageView)
         artistImageView.translatesAutoresizingMaskIntoConstraints = false
         artistImageView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
-            make.height.equalTo(50)
+            make.height.equalTo(300)
         }
     }
-    
-    
 }

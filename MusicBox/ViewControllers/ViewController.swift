@@ -4,18 +4,15 @@
 import UIKit
 import SnapKit
 
-protocol SecondSectionDelegate: AnyObject { // протокол делегата
-    func buttonPressed(withSongs songs: [Song], tag: Int)
-}
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SecondSectionDelegate {
-    
+    //MARK: - Свойства
     let tableView = UITableView()
     let buttons = ["Песни", "Рейтинг", "Жанры", "Артисты"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Главная"
+        
         //MARK: - Создание таблицы и задание ей размерности
         tableView.delegate = self
         tableView.dataSource = self
@@ -105,52 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let artistsViewController = ArtistsViewController(artists: artistsArray)
             navigationController?.pushViewController(artistsViewController, animated: true)
         }
-    
         
-    }
-    
-    class FirstSectionCell: UITableViewCell {
-        let roundButton = UIButton(type: .system)
-        func configure() {
-            backgroundColor = UIColor.red
-            roundButton.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-            roundButton.backgroundColor = UIColor.blue
-            roundButton.layer.cornerRadius = roundButton.frame.size.width / 2
-            roundButton.clipsToBounds = true
-            roundButton.setTitle("Что послушать?", for: .normal)
-            roundButton.setTitleColor(UIColor.white, for: .normal)
-            roundButton.center = contentView.center
-            contentView.addSubview(roundButton)
-            NSLayoutConstraint.activate([
-                roundButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                roundButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                roundButton.widthAnchor.constraint(equalToConstant: 200),
-                roundButton.heightAnchor.constraint(equalToConstant: 200)
-            ])
-        }
-    }
-    
-    class SecondSectionCell: UITableViewCell {
-        let button = UIButton(type: .system)
-        weak var delegate: SecondSectionDelegate? // свойство делегата
         
-        func configure(title: String, tag: Int) {
-            backgroundColor = UIColor.blue
-            button.frame = CGRect(x: 0, y: 0, width: 200, height: 50)
-            button.backgroundColor = UIColor.red
-            button.clipsToBounds = true
-            button.setTitle(title, for: .normal)
-            button.setTitleColor(UIColor.white, for: .normal)
-            button.center = contentView.center
-            contentView.addSubview(button)
-            
-            // метод для отображения нажатия кнопки
-            button.addTarget(self, action: #selector(buttonIsPressed), for: .touchUpInside)
-            button.tag = tag
-        }
-        
-        @objc func buttonIsPressed() {
-            delegate?.buttonPressed(withSongs: DataManager.songs, tag: button.tag)
-        }
     }
 }

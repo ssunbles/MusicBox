@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D93D58E52A7ABE2700DE1861 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = D93D58E42A7ABE2700DE1861 /* SnapKit-Dynamic */; };
+		D94376682AA0F3D000C11F4F /* FirstSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */; };
+		D943766C2AA0F4A700C11F4F /* SecondSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */; };
+		D94376702AA0FA4200C11F4F /* OtherSongsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943766F2AA0FA4200C11F4F /* OtherSongsCollectionView.swift */; };
 		D95FD8EE2A955A290007684C /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD8ED2A955A290007684C /* ArtistsViewController.swift */; };
 		D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9B2A8931B000B0AB34 /* ImageSongSectionCell.swift */; };
 		D9912B9E2A8931EC00B0AB34 /* TitleSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9D2A8931EC00B0AB34 /* TitleSongSectionCell.swift */; };
@@ -34,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionCell.swift; sourceTree = "<group>"; };
+		D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCell.swift; sourceTree = "<group>"; };
+		D943766F2AA0FA4200C11F4F /* OtherSongsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSongsCollectionView.swift; sourceTree = "<group>"; };
 		D95FD8ED2A955A290007684C /* ArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		D9912B9B2A8931B000B0AB34 /* ImageSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSongSectionCell.swift; sourceTree = "<group>"; };
 		D9912B9D2A8931EC00B0AB34 /* TitleSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSongSectionCell.swift; sourceTree = "<group>"; };
@@ -73,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D943766D2AA0F4FC00C11F4F /* RootVC */ = {
+			isa = PBXGroup;
+			children = (
+				D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */,
+				D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */,
+			);
+			path = RootVC;
+			sourceTree = "<group>";
+		};
+		D943766E2AA0FA0800C11F4F /* OtherSongsSection */ = {
+			isa = PBXGroup;
+			children = (
+				D943766F2AA0FA4200C11F4F /* OtherSongsCollectionView.swift */,
+			);
+			path = OtherSongsSection;
+			sourceTree = "<group>";
+		};
 		D95FD8EF2A955A500007684C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +119,8 @@
 		D9912BA12A89320500B0AB34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D943766E2AA0FA0800C11F4F /* OtherSongsSection */,
+				D943766D2AA0F4FC00C11F4F /* RootVC */,
 				D9E6A7552A9958C3007279B5 /* CardOfSong */,
 				D9E6A7542A995897007279B5 /* CardOfArtist */,
 				D9E6A7532A995883007279B5 /* ListOfArtists */,
@@ -279,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D943766C2AA0F4A700C11F4F /* SecondSectionCell.swift in Sources */,
 				D9E6A75F2A9A885B007279B5 /* OtherArtistsViewCell.swift in Sources */,
 				D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */,
 				D9EA94C52A5498BE000EB731 /* ViewController.swift in Sources */,
@@ -289,6 +315,7 @@
 				D9912BA62A89337B00B0AB34 /* Song.swift in Sources */,
 				D9E6A75B2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift in Sources */,
 				D9912BA32A89326300B0AB34 /* OtherSongsSectionCell.swift in Sources */,
+				D94376682AA0F3D000C11F4F /* FirstSectionCell.swift in Sources */,
 				D9E6A7442A9924E4007279B5 /* ReusableCellProtocol.swift in Sources */,
 				D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */,
 				D9E6A74B2A995629007279B5 /* TitleArtistImageViewCell.swift in Sources */,
@@ -297,6 +324,7 @@
 				D9EEDF072A71876D007E1B1E /* DataManager.swift in Sources */,
 				D9E6A7592A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift in Sources */,
 				D9E6A7492A994FBF007279B5 /* ArtistsCardViewController.swift in Sources */,
+				D94376702AA0FA4200C11F4F /* OtherSongsCollectionView.swift in Sources */,
 				D9EA94C12A5498BE000EB731 /* AppDelegate.swift in Sources */,
 				D9E6A7462A99270B007279B5 /* SectionOfArtists.swift in Sources */,
 				D9E6A75D2A9A883C007279B5 /* ArtistDescriptionViewCell.swift in Sources */,

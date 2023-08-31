@@ -8,6 +8,7 @@
 import UIKit
 
 class PopularSongsCollectionViewCell: UICollectionViewCell {
+    //MARK: - свойства
     let popularSongsNameOfSongLabel = UILabel()
     let popularSongsImageOfSongLabel = UIImageView()
     let popularSongArtistNameLabel = UILabel()
@@ -21,30 +22,39 @@ class PopularSongsCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     private func setupViews() {
-        contentView.addSubview(popularSongArtistNameLabel)
-        contentView.addSubview(popularSongsNameOfSongLabel)
+        
+        //MARK: - popularSongsImageOfSongLabel
         contentView.addSubview(popularSongsImageOfSongLabel)
-        
-        
         
         popularSongsImageOfSongLabel.contentMode = .scaleToFill
         popularSongsImageOfSongLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(10)
             make.centerY.equalToSuperview()
-            make.height.equalTo(30)
+            make.width.equalTo(40)
+            make.height.equalTo(40)
         }
+        
+        
+        //MARK: - popularSongsNameOfSongLabel
+        contentView.addSubview(popularSongsNameOfSongLabel)
+        
         popularSongsNameOfSongLabel.snp.makeConstraints {
             make in
-            make.leading.equalTo(popularSongsImageOfSongLabel.snp.trailing)
-            make.top.equalToSuperview()
-            make.height.equalTo(20)
+            make.leading.equalTo(popularSongsImageOfSongLabel.snp.trailing).offset(10)
+            make.top.equalToSuperview().offset(10)
+            make.height.equalTo(15)
         }
+       
+        
+        //MARK: - popularSongArtistNameLabel
+        contentView.addSubview(popularSongArtistNameLabel)
+        
         popularSongArtistNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(popularSongsNameOfSongLabel.snp.bottom)
-            make.height.equalTo(20)
+            make.top.equalTo(popularSongsNameOfSongLabel.snp.bottom).offset(5)
+            make.height.equalTo(15)
+            make.leading.equalTo(popularSongsImageOfSongLabel.snp.trailing).offset(10)
+
         }
     }
     
@@ -54,5 +64,6 @@ class PopularSongsCollectionViewCell: UICollectionViewCell {
         popularSongsImageOfSongLabel.image = song.songImage
         popularSongArtistNameLabel.font = UIFont.systemFont(ofSize: 10)
         popularSongsNameOfSongLabel.font = UIFont.systemFont(ofSize: 10)
+        contentView.backgroundColor = UIColor(red: 223/256, green: 219/256, blue: 219/256, alpha: 1)
     }
 }
