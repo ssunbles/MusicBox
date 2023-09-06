@@ -15,7 +15,7 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
    
     enum Guidelines {
         static let PopularSongsHeightItem : CGFloat = 60
-        static let PopularSongsWidthItem : CGFloat = 160
+        static let PopularSongsWidthItem : CGFloat = 170
     }
     //  контейнер для коллекции и тайтл
     let mainContainer = UIView()
@@ -95,8 +95,6 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-   
     
    //MARK: - методы коллекции
     internal func setupCollectionView() {

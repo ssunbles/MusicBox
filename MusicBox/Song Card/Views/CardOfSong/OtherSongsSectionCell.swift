@@ -76,7 +76,7 @@ class OtherSongsSection : UITableViewCell, UICollectionViewDelegate, UICollectio
          containerView.addSubview(collectionView)
          
          collectionView.snp.makeConstraints { make in
-                     make.top.equalTo(firstTitleOtherLabelOfSection.snp.bottom).offset(5) // Установите желаемый отступ здесь
+                     make.top.equalTo(firstTitleOtherLabelOfSection.snp.bottom).offset(5)
                      make.leading.trailing.bottom.equalToSuperview()
                      make.height.equalTo(80)
                  }

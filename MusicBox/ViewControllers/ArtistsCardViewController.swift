@@ -110,11 +110,29 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
         else if indexPath.section == 2 {
             guard let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: AlbumsOfArtistViewCell.identifier, for: indexPath) as? AlbumsOfArtistViewCell else { return UITableViewCell() }
             if let artist = artist {
-                let artistAlbums = getPopularSongs(for: artist)
+                let artistAlbums = getArtistAlbums (for: artist)
+                cell.artistAlbums = artistAlbums
             }
+            return cell
         }
-        
-        
+        else if indexPath.section == 3 {
+            guard let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: ArtistDescriptionViewCell.identifier, for: indexPath) as? ArtistDescriptionViewCell else { return UITableViewCell() }
+            if let artistDescription = artist?.artistDescription {
+                cell.configure(with : artistDescription)
+            }
+            cell.expandButtonAction = { [weak self] in
+                self?.tableViewArtistCard.beginUpdates()
+                self?.tableViewArtistCard.endUpdates()
+            }
+            return cell
+        }
+        else if indexPath.section == 4 {
+            guard let cell = tableViewArtistCard.dequeueReusableCell(withIdentifier: OtherArtistsViewCell.identifier, for: indexPath) as? OtherArtistsViewCell else { return UITableViewCell() }
+            
+            cell.otherArtists = DataManager.artists.filter { $0 != artist}
+            cell.delegate = self
+            return cell
+        }
         return UITableViewCell()
     }
     
@@ -131,12 +149,19 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func getArtistAlbums (for artist: Artist) -> [Song] {
-        if let popularAlbums = artistSongsDict [artist] {
+    func getArtistAlbums (for artist: Artist) -> [Album] {
+        if let popularAlbums = artistAlbumsDict [artist] {
         return popularAlbums
         } else
         {
             return []
         }
+    }
+}
+
+extension ArtistsCardViewController : ArtistSelectionDelegate {
+    func didSelect ( artist : Artist) {
+        let secongArtistCardVC = ArtistsCardViewController(artist: artist)
+        navigationController?.pushViewController(secongArtistCardVC, animated: true)
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92F76DF2AA8EA1E009C1E16 /* ArtistAlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F76DE2AA8EA1E009C1E16 /* ArtistAlbumsCollectionViewCell.swift */; };
+		D92F76E12AA92534009C1E16 /* OtherArtistsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F76E02AA92534009C1E16 /* OtherArtistsCollectionView.swift */; };
 		D93D58E52A7ABE2700DE1861 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = D93D58E42A7ABE2700DE1861 /* SnapKit-Dynamic */; };
 		D94376682AA0F3D000C11F4F /* FirstSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */; };
 		D943766C2AA0F4A700C11F4F /* SecondSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D92F76DE2AA8EA1E009C1E16 /* ArtistAlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArtistAlbumsCollectionViewCell.swift; path = CollectionViewCells/ArtistAlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D92F76E02AA92534009C1E16 /* OtherArtistsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OtherArtistsCollectionView.swift; path = CollectionViewCells/OtherArtistsCollectionView.swift; sourceTree = "<group>"; };
 		D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionCell.swift; sourceTree = "<group>"; };
 		D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCell.swift; sourceTree = "<group>"; };
 		D943766F2AA0FA4200C11F4F /* OtherSongsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSongsCollectionView.swift; sourceTree = "<group>"; };
@@ -136,24 +140,8 @@
 				D9E6A7432A9924E4007279B5 /* ReusableCellProtocol.swift */,
 				D9EA94C02A5498BE000EB731 /* AppDelegate.swift */,
 				D9912BA52A89337B00B0AB34 /* Song.swift */,
-				D9E6A74F2A9956CE007279B5 /* New Group */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D9E6A74F2A9956CE007279B5 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				D9E6A7512A9956F0007279B5 /* New Group */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		D9E6A7512A9956F0007279B5 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		D9E6A7522A995859007279B5 /* ListOfSongs */ = {
@@ -179,8 +167,10 @@
 				D9E6A7582A9A8736007279B5 /* PopularSongsOfArtistViewCell.swift */,
 				D9E6A7602A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift */,
 				D9E6A75A2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift */,
+				D92F76DE2AA8EA1E009C1E16 /* ArtistAlbumsCollectionViewCell.swift */,
 				D9E6A75C2A9A883C007279B5 /* ArtistDescriptionViewCell.swift */,
 				D9E6A75E2A9A885B007279B5 /* OtherArtistsViewCell.swift */,
+				D92F76E02AA92534009C1E16 /* OtherArtistsCollectionView.swift */,
 			);
 			path = CardOfArtist;
 			sourceTree = "<group>";
@@ -310,12 +300,14 @@
 				D9EA94C52A5498BE000EB731 /* ViewController.swift in Sources */,
 				D9EEDF0B2A718AD5007E1B1E /* SongCardViewController.swift in Sources */,
 				D9E6A7612A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift in Sources */,
+				D92F76E12AA92534009C1E16 /* OtherArtistsCollectionView.swift in Sources */,
 				D9E6A7572A995960007279B5 /* SectionOfSongs.swift in Sources */,
 				D9EEDF092A718944007E1B1E /* SongsViewController.swift in Sources */,
 				D9912BA62A89337B00B0AB34 /* Song.swift in Sources */,
 				D9E6A75B2A9A878C007279B5 /* AlbumsOfArtistViewCell.swift in Sources */,
 				D9912BA32A89326300B0AB34 /* OtherSongsSectionCell.swift in Sources */,
 				D94376682AA0F3D000C11F4F /* FirstSectionCell.swift in Sources */,
+				D92F76DF2AA8EA1E009C1E16 /* ArtistAlbumsCollectionViewCell.swift in Sources */,
 				D9E6A7442A9924E4007279B5 /* ReusableCellProtocol.swift in Sources */,
 				D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */,
 				D9E6A74B2A995629007279B5 /* TitleArtistImageViewCell.swift in Sources */,

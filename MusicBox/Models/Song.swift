@@ -53,11 +53,13 @@ struct Album : Equatable {
     let albumName: String?
     let albumArtist: Artist
     let albumSongs : [Song]
+    let albumImage : UIImage?
     
-    init (albumId : Int?, albumName: String?, albumArtist: Artist, albumSongs : [Song]) {
+    init (albumId : Int?, albumName: String?, albumArtist: Artist, albumSongs : [Song], albumImage : UIImage?) {
         self.albumId = albumId
         self.albumName = albumName
         self.albumArtist = albumArtist
         self.albumSongs = albumSongs
+        self.albumImage = albumImage
     }
 }

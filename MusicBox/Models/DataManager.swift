@@ -42,8 +42,8 @@ class DataManager {
         return song
     }
     
-    static func createAlbum (albumName: String?, albumArtist : Artist, albumSongs : [Song]) -> Album {
-        let album = Album(albumId: getNextAlbumId(), albumName: albumName, albumArtist: albumArtist, albumSongs: albumSongs)
+    static func createAlbum (albumName: String?, albumArtist : Artist, albumSongs : [Song], albumImage : UIImage?) -> Album {
+        let album = Album(albumId: getNextAlbumId(), albumName: albumName, albumArtist: albumArtist, albumSongs: albumSongs, albumImage: albumImage)
         return album
     }
     
@@ -734,16 +734,17 @@ class DataManager {
     
     //MARK: - массивы альбомов
     static let albums : [Album] = [
-        DataManager.createAlbum(albumName: "Wheels of Fire", albumArtist: artists[0], albumSongs: [songs [0]]),
-        DataManager.createAlbum(albumName: "Toosie Slide", albumArtist: artists[3], albumSongs: [songs [1]]),
-        DataManager.createAlbum(albumName: "Anti", albumArtist: artists[1], albumSongs: [songs [2]]),
-        DataManager.createAlbum(albumName: "Nevermind", albumArtist: artists[2], albumSongs: [songs [3]]),
-        DataManager.createAlbum(albumName: "Aftermath", albumArtist: artists[4], albumSongs: [songs [4]]),
-        DataManager.createAlbum(albumName: "SKINS", albumArtist: artists[7], albumSongs: [songs [5]]),
-        DataManager.createAlbum(albumName: "Macadelic", albumArtist: artists[6], albumSongs: [songs [6]]),
-        DataManager.createAlbum(albumName: "At. Long. Last. ASAP", albumArtist: artists[5], albumSongs: [songs [7]]),
-        DataManager.createAlbum(albumName: "Best Day Ever (5th Anniversary Remastered Edition)", albumArtist: artists[6], albumSongs: [songs [8]]),
-        DataManager.createAlbum(albumName: "Circles", albumArtist: artists[6], albumSongs: [songs [9]])
+        DataManager.createAlbum(albumName: "Wheels of Fire", albumArtist: artists[0], albumSongs: [songs [0]], albumImage: UIImage(named: "WheelsofFire")),
+                                
+        DataManager.createAlbum(albumName: "Toosie Slide", albumArtist: artists[3], albumSongs: [songs [1]], albumImage: UIImage(named: "Toosie Slide")),
+        DataManager.createAlbum(albumName: "Anti", albumArtist: artists[1], albumSongs: [songs [2]], albumImage: UIImage(named: "Anti")),
+        DataManager.createAlbum(albumName: "Nevermind", albumArtist: artists[2], albumSongs: [songs [3]], albumImage: UIImage(named: "Nevermind")),
+        DataManager.createAlbum(albumName: "Aftermath", albumArtist: artists[4], albumSongs: [songs [4]], albumImage: UIImage(named: "Aftermath")),
+        DataManager.createAlbum(albumName: "SKINS", albumArtist: artists[7], albumSongs: [songs [5]], albumImage: UIImage(named: "SKINS")),
+        DataManager.createAlbum(albumName: "Macadelic", albumArtist: artists[6], albumSongs: [songs [6]], albumImage: UIImage(named: "Macadelic")),
+        DataManager.createAlbum(albumName: "At. Long. Last. ASAP", albumArtist: artists[5], albumSongs: [songs [7]], albumImage: UIImage(named: "At. Long. Last. ASAP")),
+        DataManager.createAlbum(albumName: "Best Day Ever (5th Anniversary Remastered Edition)", albumArtist: artists[6], albumSongs: [songs [8]], albumImage: UIImage(named: "Best Day Ever (5th Anniversary Remastered Edition)")),
+        DataManager.createAlbum(albumName: "Circles", albumArtist: artists[6], albumSongs: [songs [9]], albumImage: UIImage(named: "Circles"))
 
         ]
 }

@@ -25,7 +25,8 @@ class OtherSongsCollectionView : UICollectionViewCell {
     
     private func setupViews() {
         contentView.addSubview(otherSongImageLabel)
-        
+        contentView.addSubview(otherSongTitleLabel)
+
       //  otherSongImageLabel.contentMode = .scaleAspectFit
         
         otherSongImageLabel.snp.makeConstraints { make in
@@ -40,7 +41,7 @@ class OtherSongsCollectionView : UICollectionViewCell {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(otherSongImageLabel.snp.bottom)
             make.bottom.lessThanOrEqualToSuperview()
-            contentView.addSubview(otherSongTitleLabel)
+            
         }
     }
     func configure(with song: Song) {
