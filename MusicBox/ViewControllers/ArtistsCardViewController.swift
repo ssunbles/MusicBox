@@ -80,7 +80,7 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
     //MARK: - Методы таблицы и кнопок
     @objc func goToRootVC () {
         if let navigationController = navigationController {
-            navigationController.popViewController(animated: true)
+            navigationController.popToRootViewController(animated: true)
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,6 +104,7 @@ class ArtistsCardViewController: UIViewController, UITableViewDelegate, UITableV
             if let artist = artist {
                 let popularSongs = getPopularSongs (for: artist)
                 cell.artistSongs = popularSongs
+                cell.delegateForPopSong = self
             }
             return cell
         }
@@ -165,3 +166,12 @@ extension ArtistsCardViewController : ArtistSelectionDelegate {
         navigationController?.pushViewController(secongArtistCardVC, animated: true)
     }
 }
+
+extension ArtistsCardViewController : SongSelectionDelegateFromArtistCardVC {
+    func didSelectPopSong (song: Song) {
+        let songCardVC = SongCardViewController (song: song)
+        navigationController?.pushViewController(songCardVC, animated: true)
+    }
+}
+    
+

@@ -67,3 +67,4 @@ class PopularSongsCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = UIColor(red: 223/256, green: 219/256, blue: 219/256, alpha: 1)
     }
 }
+

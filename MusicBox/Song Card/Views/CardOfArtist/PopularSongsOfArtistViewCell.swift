@@ -12,7 +12,8 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
     //MARK: -инициализация свойств
     // экземпляр  песен артиста
     var artistSongs : [Song] = []
-   
+    weak var delegateForPopSong : SongSelectionDelegateFromArtistCardVC?
+    
     enum Guidelines {
         static let PopularSongsHeightItem : CGFloat = 60
         static let PopularSongsWidthItem : CGFloat = 170
@@ -22,7 +23,6 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
     let popularTitleLabel = UILabel()
     var allSongsOfArtistButton = UIButton()
     
-  
     
     //MARK: - Инициализация коллекции
     private var collectionView : UICollectionView  = {
@@ -112,6 +112,16 @@ class PopularSongsOfArtistViewCell: UITableViewCell, UICollectionViewDelegate, U
         cell.configure( with: song)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedSong = artistSongs [indexPath.row]
+        delegateForPopSong?.didSelectPopSong(song: selectedSong)
+    }
+}
+
+//MARK: - Делегат для перехода в популярные треки
+protocol SongSelectionDelegateFromArtistCardVC : AnyObject {
+    func didSelectPopSong (song : Song)
 }
 
 extension PopularSongsOfArtistViewCell  : UICollectionViewDelegateFlowLayout {
@@ -119,3 +129,4 @@ extension PopularSongsOfArtistViewCell  : UICollectionViewDelegateFlowLayout {
         return CGSize(width: Guidelines.PopularSongsWidthItem, height: Guidelines.PopularSongsHeightItem)
     }
 }
+

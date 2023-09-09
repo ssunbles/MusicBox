@@ -12,7 +12,7 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK: - свойства
     let songs: [Song]
     let tableViewOfSongs = UITableView()
-    let titleButton = UIButton(type: .system)
+    let songTitleButton = UIButton(type: .system)
     
     init(songs: [Song]) {
         self.songs = songs
@@ -27,20 +27,19 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //MARK: - Контейнер
         let containerView = UIView()
         view.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        containerView.snp.makeConstraints { make in
+            make.edges.equalTo(view)
+        }
                
         //MARK: - Title
-        titleButton.setTitle("Список песен", for: .normal)
-        navigationItem.titleView = titleButton
-        titleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        containerView.snp.makeConstraints { make in
-            make.top.equalTo(view)
-            make.bottom.equalTo(view)
-            make.leading.equalTo(view)
-            make.trailing.equalTo(view)
-        }
+        songTitleButton.setTitle("Список песен", for: .normal)
+        navigationItem.titleView = songTitleButton
+        songTitleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        
         containerView.addSubview(navigationController!.navigationBar)
 
+        
         //MARK: - Создаем таблицу и задаем ей размерность
         tableViewOfSongs.delegate = self
         tableViewOfSongs.dataSource = self
@@ -75,8 +74,5 @@ class SongsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let songCardVC = SongCardViewController(song : selectedSong)
         navigationController?.pushViewController(songCardVC, animated: true)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        titleButton.setTitle("Список песен", for: .normal)
-    }
 }
+

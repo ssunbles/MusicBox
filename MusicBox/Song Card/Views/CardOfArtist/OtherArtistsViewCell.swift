@@ -94,6 +94,8 @@ class OtherArtistsViewCell: UITableViewCell, UICollectionViewDelegate, UICollect
     //MARK: - Делегат
 protocol ArtistSelectionDelegate : AnyObject {
     func didSelect(artist: Artist)
+    
+    
 }
 extension OtherArtistsViewCell : UICollectionViewDelegateFlowLayout {
     internal func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

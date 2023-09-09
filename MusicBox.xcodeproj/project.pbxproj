@@ -13,6 +13,12 @@
 		D94376682AA0F3D000C11F4F /* FirstSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */; };
 		D943766C2AA0F4A700C11F4F /* SecondSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */; };
 		D94376702AA0FA4200C11F4F /* OtherSongsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D943766F2AA0FA4200C11F4F /* OtherSongsCollectionView.swift */; };
+		D95A27A62AAD114C00681934 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95A27A52AAD114B00681934 /* StartViewController.swift */; };
+		D95A27A82AAD116B00681934 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95A27A72AAD116B00681934 /* LoginViewController.swift */; };
+		D95A27AA2AAD117D00681934 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95A27A92AAD117D00681934 /* SignUpViewController.swift */; };
+		D95A27AD2AAD23A600681934 /* Knewave-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95A27AC2AAD23A600681934 /* Knewave-Regular.ttf */; };
+		D95A27AF2AAD28C700681934 /* Handlee-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95A27AE2AAD28C700681934 /* Handlee-Regular.ttf */; };
+		D95A27B32AAD2AE000681934 /* 19413.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95A27B22AAD2AE000681934 /* 19413.ttf */; };
 		D95FD8EE2A955A290007684C /* ArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95FD8ED2A955A290007684C /* ArtistsViewController.swift */; };
 		D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9B2A8931B000B0AB34 /* ImageSongSectionCell.swift */; };
 		D9912B9E2A8931EC00B0AB34 /* TitleSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9D2A8931EC00B0AB34 /* TitleSongSectionCell.swift */; };
@@ -44,6 +50,12 @@
 		D94376672AA0F3D000C11F4F /* FirstSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSectionCell.swift; sourceTree = "<group>"; };
 		D943766B2AA0F4A700C11F4F /* SecondSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSectionCell.swift; sourceTree = "<group>"; };
 		D943766F2AA0FA4200C11F4F /* OtherSongsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSongsCollectionView.swift; sourceTree = "<group>"; };
+		D95A27A52AAD114B00681934 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D95A27A72AAD116B00681934 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D95A27A92AAD117D00681934 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D95A27AC2AAD23A600681934 /* Knewave-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Knewave-Regular.ttf"; sourceTree = "<group>"; };
+		D95A27AE2AAD28C700681934 /* Handlee-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Handlee-Regular.ttf"; sourceTree = "<group>"; };
+		D95A27B22AAD2AE000681934 /* 19413.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 19413.ttf; sourceTree = "<group>"; };
 		D95FD8ED2A955A290007684C /* ArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsViewController.swift; sourceTree = "<group>"; };
 		D9912B9B2A8931B000B0AB34 /* ImageSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSongSectionCell.swift; sourceTree = "<group>"; };
 		D9912B9D2A8931EC00B0AB34 /* TitleSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSongSectionCell.swift; sourceTree = "<group>"; };
@@ -100,11 +112,24 @@
 			path = OtherSongsSection;
 			sourceTree = "<group>";
 		};
+		D95A27AB2AAD236C00681934 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D95A27B22AAD2AE000681934 /* 19413.ttf */,
+				D95A27AE2AAD28C700681934 /* Handlee-Regular.ttf */,
+				D95A27AC2AAD23A600681934 /* Knewave-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		D95FD8EF2A955A500007684C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				D95FD8ED2A955A290007684C /* ArtistsViewController.swift */,
 				D9E6A7482A994FBF007279B5 /* ArtistsCardViewController.swift */,
+				D95A27A52AAD114B00681934 /* StartViewController.swift */,
+				D95A27A72AAD116B00681934 /* LoginViewController.swift */,
+				D95A27A92AAD117D00681934 /* SignUpViewController.swift */,
 				D9EEDF0A2A718AD5007E1B1E /* SongCardViewController.swift */,
 				D9EEDF082A718944007E1B1E /* SongsViewController.swift */,
 				D9EA94C42A5498BE000EB731 /* ViewController.swift */,
@@ -205,6 +230,7 @@
 		D9EA94BF2A5498BE000EB731 /* MusicBox */ = {
 			isa = PBXGroup;
 			children = (
+				D95A27AB2AAD236C00681934 /* Fonts */,
 				D95FD8EF2A955A500007684C /* ViewControllers */,
 				D9912BA42A89337100B0AB34 /* Models */,
 				D9912B9A2A89315C00B0AB34 /* Song Card */,
@@ -282,8 +308,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95A27B32AAD2AE000681934 /* 19413.ttf in Resources */,
+				D95A27AD2AAD23A600681934 /* Knewave-Regular.ttf in Resources */,
 				D9EA94CD2A5498C0000EB731 /* LaunchScreen.storyboard in Resources */,
 				D9EA94CA2A5498C0000EB731 /* Assets.xcassets in Resources */,
+				D95A27AF2AAD28C700681934 /* Handlee-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95A27A82AAD116B00681934 /* LoginViewController.swift in Sources */,
 				D943766C2AA0F4A700C11F4F /* SecondSectionCell.swift in Sources */,
 				D9E6A75F2A9A885B007279B5 /* OtherArtistsViewCell.swift in Sources */,
 				D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */,
 				D9EA94C52A5498BE000EB731 /* ViewController.swift in Sources */,
 				D9EEDF0B2A718AD5007E1B1E /* SongCardViewController.swift in Sources */,
+				D95A27A62AAD114C00681934 /* StartViewController.swift in Sources */,
 				D9E6A7612A9B8FCE007279B5 /* PopularSongsCollectionViewCell.swift in Sources */,
 				D92F76E12AA92534009C1E16 /* OtherArtistsCollectionView.swift in Sources */,
 				D9E6A7572A995960007279B5 /* SectionOfSongs.swift in Sources */,
@@ -308,6 +339,7 @@
 				D9912BA32A89326300B0AB34 /* OtherSongsSectionCell.swift in Sources */,
 				D94376682AA0F3D000C11F4F /* FirstSectionCell.swift in Sources */,
 				D92F76DF2AA8EA1E009C1E16 /* ArtistAlbumsCollectionViewCell.swift in Sources */,
+				D95A27AA2AAD117D00681934 /* SignUpViewController.swift in Sources */,
 				D9E6A7442A9924E4007279B5 /* ReusableCellProtocol.swift in Sources */,
 				D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */,
 				D9E6A74B2A995629007279B5 /* TitleArtistImageViewCell.swift in Sources */,

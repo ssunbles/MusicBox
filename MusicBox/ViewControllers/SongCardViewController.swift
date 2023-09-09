@@ -43,11 +43,11 @@ class SongCardViewController: UIViewController, UITableViewDelegate, UITableView
             
         //MARK: - Кнопка Главная
         // Добавляем кнопку "Главная" в навигационную панель
-        let titleButton =  UIButton(type: .system)
-        titleButton.setTitle("Главная", for: .normal)
-        titleButton.addTarget(self, action: #selector(goToRootVC), for: .touchUpInside)
-        navigationItem.titleView = titleButton
-        titleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        let songCardsTitleButton =  UIButton(type: .system)
+        songCardsTitleButton.setTitle("Главная", for: .normal)
+        songCardsTitleButton.addTarget(self, action: #selector(goToRootVC), for: .touchUpInside)
+        navigationItem.titleView = songCardsTitleButton
+        songCardsTitleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         containerView.addSubview(navigationController!.navigationBar)
         
         //MARK: - Таблица

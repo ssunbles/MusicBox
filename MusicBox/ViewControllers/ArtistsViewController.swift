@@ -12,6 +12,11 @@ class ArtistsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Переменные
     // Массив артистов
     let artists: [Artist]
+    // Таблица для отображения списка песен
+    let tableViewOfArtists = UITableView()
+    //Кнопка для заголовка в навигационной панели
+    let artistsTitleButton = UIButton(type : .system)
+    
     // Инициализация класса с передачей массива артистов
     init (artists: [Artist]) {
         self.artists = artists
@@ -21,13 +26,6 @@ class ArtistsViewController: UIViewController, UITableViewDelegate, UITableViewD
         fatalError("init(coder:) has not been implemented")
     }
     
-    // Таблица для отображения списка песен
-    let tableViewOfArtists = UITableView()
-    //Кнопка для заголовка в навигационной панели
-    let artistsTitleButton = UIButton(type : .system)
-    
-  
-   
     //MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +45,7 @@ class ArtistsViewController: UIViewController, UITableViewDelegate, UITableViewD
         artistsTitleButton.setTitle("Список артистов", for: .normal)
         navigationItem.titleView = artistsTitleButton
         artistsTitleButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        
         containerView.addSubview(navigationController!.navigationBar)
         
         //MARK: - Таблица
