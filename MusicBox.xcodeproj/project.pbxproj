@@ -25,6 +25,7 @@
 		D9912BA02A89320000B0AB34 /* LyricSongSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912B9F2A89320000B0AB34 /* LyricSongSectionCell.swift */; };
 		D9912BA32A89326300B0AB34 /* OtherSongsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912BA22A89326300B0AB34 /* OtherSongsSectionCell.swift */; };
 		D9912BA62A89337B00B0AB34 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9912BA52A89337B00B0AB34 /* Song.swift */; };
+		D991DBD02AB24C6C00D936D5 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = D991DBCF2AB24C6C00D936D5 /* UserDefault.swift */; };
 		D9E6A7442A9924E4007279B5 /* ReusableCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7432A9924E4007279B5 /* ReusableCellProtocol.swift */; };
 		D9E6A7462A99270B007279B5 /* SectionOfArtists.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7452A99270B007279B5 /* SectionOfArtists.swift */; };
 		D9E6A7492A994FBF007279B5 /* ArtistsCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E6A7482A994FBF007279B5 /* ArtistsCardViewController.swift */; };
@@ -62,6 +63,7 @@
 		D9912B9F2A89320000B0AB34 /* LyricSongSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricSongSectionCell.swift; sourceTree = "<group>"; };
 		D9912BA22A89326300B0AB34 /* OtherSongsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSongsSectionCell.swift; sourceTree = "<group>"; };
 		D9912BA52A89337B00B0AB34 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		D991DBCF2AB24C6C00D936D5 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		D9E6A7432A9924E4007279B5 /* ReusableCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReusableCellProtocol.swift; path = MusicBox/Models/ReusableCellProtocol.swift; sourceTree = SOURCE_ROOT; };
 		D9E6A7452A99270B007279B5 /* SectionOfArtists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectionOfArtists.swift; path = "MusicBox/Song Card/Views/ListOfArtists/SectionOfArtists.swift"; sourceTree = SOURCE_ROOT; };
 		D9E6A7482A994FBF007279B5 /* ArtistsCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCardViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D9EEDF062A71876D007E1B1E /* DataManager.swift */,
+				D991DBCF2AB24C6C00D936D5 /* UserDefault.swift */,
 				D9E6A7432A9924E4007279B5 /* ReusableCellProtocol.swift */,
 				D9EA94C02A5498BE000EB731 /* AppDelegate.swift */,
 				D9912BA52A89337B00B0AB34 /* Song.swift */,
@@ -325,6 +328,7 @@
 			files = (
 				D95A27A82AAD116B00681934 /* LoginViewController.swift in Sources */,
 				D943766C2AA0F4A700C11F4F /* SecondSectionCell.swift in Sources */,
+				D991DBD02AB24C6C00D936D5 /* UserDefault.swift in Sources */,
 				D9E6A75F2A9A885B007279B5 /* OtherArtistsViewCell.swift in Sources */,
 				D9912B9C2A8931B100B0AB34 /* ImageSongSectionCell.swift in Sources */,
 				D9EA94C52A5498BE000EB731 /* ViewController.swift in Sources */,

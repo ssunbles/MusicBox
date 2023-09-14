@@ -15,15 +15,26 @@ class LoginViewController: UIViewController {
     let titleLoginLabel = UILabel()
     let mainContainerView = UIView()
     
+    let titleLabels = [UILabel(), UILabel()]
+    var textFields = [UITextField(), UITextField()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    //MARK: - Фоновое изображение и тайтл
+        //MARK: - Фоновое изображение и тайтл
         setupBackgroundImage()
         setupTitleLabel()
-
-    //MARK: - StackView
-        let loginStackView = createInputStackView(title: "Введите логин", placeholder: "Логин")
-        let passwordStackView = createInputStackView(title: "Введите пароль", placeholder: "Пароль")
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        
+        //MARK: - StackView
+        
+        let loginStackView = createInputStackView(titleLabel: titleLabels[0], textField: textFields[0])
+        let passwordStackView = createInputStackView(titleLabel: titleLabels[1], textField: textFields[1])
+        
+        //MARK: - TextFieldAndTitleLabel
+        configureTextFieldAndTitleLabel (textField: textFields[0], titleLabel: titleLabels[0], title: "Введите логин")
+        configureTextFieldAndTitleLabel (textField: textFields[1], titleLabel: titleLabels[1], title: "Введите пароль")
+        
+        
         mainStackView = UIStackView (arrangedSubviews:  [titleLoginLabel, loginStackView, passwordStackView, loginButton])
         
         //MARK: - Настройки StackView и Label
@@ -34,6 +45,8 @@ class LoginViewController: UIViewController {
         //MARK: - mainContainerView
         configureMainControllerView()
         
+        //MARK: - UserDefault
+      
     }
     //MARK: - методы
     private func setupTitleLabel() {
@@ -73,15 +86,12 @@ class LoginViewController: UIViewController {
         }
     }
     
-    private func createInputStackView (title : String, placeholder : String) -> UIStackView {
-        //MARK: - настройка titleLabel и textField
-        let titleLabel = UILabel()
+    
+    private func configureTextFieldAndTitleLabel (textField : UITextField, titleLabel : UILabel, title : String) {
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         titleLabel.textColor = UIColor.black
         
-        let textField = UITextField()
-        textField.text = placeholder
         textField.backgroundColor = UIColor(red: 217/256, green: 217/256, blue: 217/256, alpha: 1)
         textField.layer.cornerRadius = 5
         textField.font = UIFont.systemFont(ofSize: 12)
@@ -93,7 +103,10 @@ class LoginViewController: UIViewController {
         let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         textField.leftView = leftPaddingView
         textField.leftViewMode = .always
-        
+    }
+    
+    private func createInputStackView (titleLabel : UILabel, textField : UITextField) -> UIStackView {
+        //MARK: - настройка titleLabel и textField
         let stackView = UIStackView(arrangedSubviews: [titleLabel, textField])
         stackView.axis = .vertical
         stackView.spacing = 1
@@ -138,6 +151,28 @@ class LoginViewController: UIViewController {
             make.width.equalTo(292)
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
+        }
+    }
+    
+    @objc func loginButtonTapped () {
+        guard let userDict = UserDefaults.standard.dictionary(forKey: "currentUser") as? [String: String] else
+        {
+            print("Пользователь не найден")
+            return
+        }
+        
+        let enteredUserName = textFields[0].text ?? ""
+        let enteredPassword = textFields[1].text ?? ""
+        
+        if enteredUserName == userDict["login"] , enteredPassword == userDict["password"] {
+            let mainVC = ViewController()
+            self.navigationController?.pushViewController(mainVC, animated: true)
+        } else {
+            print("Неверные логин и пароль")
+            let alertController = UIAlertController(title: "Неверные данные", message: "Неправильно введены логин или пароль!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Попробовать снова", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
 }

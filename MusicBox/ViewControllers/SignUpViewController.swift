@@ -16,16 +16,33 @@ class SignUpViewController: UIViewController {
     let titleSignUpLabel = UILabel()
     let mainContainerView = UIView()
     
+    let loginTextField = UITextField()
+    let emailTextField = UITextField()
+    let passwordTextField = UITextField()
+    
+    let loginTitleLabel = UILabel()
+    let emailTitleLabel = UILabel()
+    let passwordTitleLabel = UILabel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //MARK: - Фоновое изображение и тайтл
         setupBackgroundImage()
         setupTitleLabel()
+        createAccountButton.addTarget(self, action: #selector(createAccountButtonTapped), for: .touchUpInside)
         
         //MARK: - StackView
-        let loginStackView = createInputStackView(title: "Введите логин", placeholder: "Логин")
-        let emailStackView = createInputStackView(title: "Введите почту", placeholder: "Почта")
-        let passwordStackView = createInputStackView(title: "Введите пароль", placeholder: "Пароль")
+     
+        let loginStackView = createInputStackView( titleLabel: loginTitleLabel, textField: loginTextField)
+        let emailStackView = createInputStackView(titleLabel: emailTitleLabel, textField: emailTextField)
+        let passwordStackView = createInputStackView(titleLabel: passwordTitleLabel, textField: passwordTextField)
+        
+        //MARK: - TextFieldAndTitleLabel
+        configureTextFieldAndTitleLabel (textField: loginTextField, titleLabel: loginTitleLabel, title: "Введите логин")
+        configureTextFieldAndTitleLabel (textField: emailTextField, titleLabel: emailTitleLabel, title: "Введите почту")
+        configureTextFieldAndTitleLabel (textField: passwordTextField, titleLabel: passwordTitleLabel, title: "Введите пароль")
+        
         mainStackView =  UIStackView (arrangedSubviews: [titleSignUpLabel, loginStackView, emailStackView, passwordStackView, createAccountButton])
         //MARK: - Настройки StackView и Label
         configureMainStackView()
@@ -76,16 +93,11 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
-    func createInputStackView (title : String, placeholder : String) -> UIStackView
-    {
+    func configureTextFieldAndTitleLabel (textField : UITextField, titleLabel : UILabel, title : String) {
         //MARK: - настройка titleLabel и textField
-        let titleLabel = UILabel()
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: 14)
         
-        let textField = UITextField()
-        textField.text = placeholder
         textField.backgroundColor = UIColor(red: 217/256, green: 217/256, blue: 217/256, alpha: 1)
         textField.layer.cornerRadius = 5
         textField.font = UIFont.systemFont(ofSize: 12)
@@ -97,8 +109,11 @@ class SignUpViewController: UIViewController {
         let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         textField.leftView = leftPaddingView
         textField.leftViewMode = .always
-        
-        let stackView = UIStackView(arrangedSubviews: [titleLabel,textField ])
+    }
+    
+    func createInputStackView (titleLabel : UILabel, textField : UITextField) -> UIStackView
+    {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,textField])
         stackView.axis = .vertical
         stackView.spacing = 1
         return stackView
@@ -145,4 +160,37 @@ class SignUpViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
     }
+    
+     @objc func createAccountButtonTapped () {
+         guard let login = loginTextField.text, !login.isEmpty,
+               let password = passwordTextField.text, !password.isEmpty,
+               let email = emailTextField.text, !email.isEmpty
+         else {
+             let alertController = UIAlertController(title: "Ошибка", message: "Пожалуйста, заполните все поля!", preferredStyle: .alert)
+             let okAction = UIAlertAction(title: "Ок!", style: .default, handler: nil)
+             alertController.addAction(okAction)
+             present(alertController,animated: true, completion: nil)
+             return }
+   
+    // Создаем экземпляр пользователя
+         let user = User(login: login, email: email, password: password)
+            
+    // Преобразуем пользователя в словарь для сохранения в UserDefaults
+         let userDict : [String : Any] = [
+             "login" : user.login,
+             "password" : user.password,
+             "email" : user.email
+         ]
+         UserDefaults.standard.set(userDict, forKey: "currentUser")
+    
+         print("\(user.email),\(user.password), \(user.login)")
+         let successAlertController = UIAlertController(title: "Успешно", message: "Вы успешно зарегистрировались!", preferredStyle: .alert)
+         let loginAction = UIAlertAction(title: "Ок", style: .default, handler: { _ in
+             let loginVC = LoginViewController()
+             self.navigationController?.pushViewController(loginVC, animated: true)
+         })
+         successAlertController.addAction(loginAction)
+         present(successAlertController, animated: true, completion: nil)
+         
+     }
 }
